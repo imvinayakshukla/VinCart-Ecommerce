@@ -13,11 +13,11 @@ export default function Navbar() {
       setNavmenu(true)
   }
   return (
-    <>
-      <nav className='Navbar   relative lg:bg-white lg:shadow-xl  flex lg:flex-row flex-col mt-4 lg:m-6 items-center lg:justify-between'>
+    
+      <nav className='Navbar    z-20 w-full  lg:bg-white lg:shadow-xl  flex lg:flex-row flex-col mt-4 p-2 items-center lg:justify-between'>
         {/* ****Logo and hamburger***** */}
 
-        <div className='flex flex-row items-center justify-around relative space-x-11'>
+        <div className='flex flex-row items-center justify-around  space-x-11'>
           <div className='logo mx-4 '>
             <img src='/images/transparent.png' alt='logo' width={200} />
           </div>
@@ -67,7 +67,7 @@ export default function Navbar() {
           </div>
         </div>
         {/* ************Mobile View********** */}
-        <div className={`${!navmenu ? 'translate-x-0' : '-translate-x-full' } ${!navmenu ? 'flex-col' : 'hidden'} transition-all duration-500 ease-in-out space-y-9 w-screen mx-0 relative h-screen shadow-2xl z-40 bg-gray-400 mt-5 items-center  lg:hidden flex `}>
+        <div className={` ${!navmenu ? 'flex-col    ' : 'hidden '}  transition-all ease-in-out  space-y-9 w-screen mx-0  h-screen shadow-2xl z-40 bg-gray-400 mt-5 items-center  lg:hidden flex `}>
           <div className='menu  '>
             <ul className='flex flex-col space-y-8 mt-6  '>
               <li className='cursor-pointer hover:text-red-500'>Home</li>
@@ -110,6 +110,6 @@ export default function Navbar() {
       </nav>
 
 
-    </>
+    
   )
 }

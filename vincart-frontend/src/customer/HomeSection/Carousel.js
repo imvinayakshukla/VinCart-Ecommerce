@@ -4,8 +4,8 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import demo_carousel from './Demo_Carousel'
 
 const items = demo_carousel.map((item) =>
-    <div className='w-full h-[45vh] mt-5'>
-        <img className='cursor-pointer lg:w-screen object-cover ' src={item.image} /></div>)
+    <div className='w-full lg:h-[45vh] mt-5 lg:mt-2 '>
+        <img className='cursor-pointer lg:w-screen h-[100%]- ' src={item.image} /></div>)
 
 const Carousel = () => (
     <AliceCarousel
