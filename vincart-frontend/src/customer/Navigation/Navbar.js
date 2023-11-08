@@ -14,7 +14,7 @@ export default function Navbar() {
   }
   return (
     
-      <nav className='Navbar    z-20 w-full  lg:bg-white lg:shadow-xl  flex lg:flex-row flex-col mt-4 p-2 items-center lg:justify-between'>
+      <nav className='Navbar font-bold    z-20 w-full  lg:bg-white lg:shadow-xl  flex lg:flex-row flex-col mt-4 p-2 items-center lg:justify-between'>
         {/* ****Logo and hamburger***** */}
 
         <div className='flex flex-row items-center justify-around  space-x-11'>
