@@ -3,12 +3,13 @@ import Demo_categories from './Demo_categories'
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import LockIcon from '@mui/icons-material/Lock';
 import SyncLockIcon from '@mui/icons-material/SyncLock';
+import Carousel from './Carousel';
 
 
 export default function Shop_category() {
     return (
         <>
-
+            <Carousel/>
             <div className='mt-5 mb-8 text-3xl font-semibold'>
                 Shop By <span className='text-yellow-500 hover:text-yellow-300'>Category</span>
             </div>
@@ -49,7 +50,7 @@ export default function Shop_category() {
 
             </div>
 
-            <div className='flex flex-row space-x-6 m-4 h-full  '>
+            <div className='flex lg:flex-row flex-col  space-x-6 m-4 h-full  '>
                 <div className='  flex flex-col justify-center items-center space-y-5 ' >
                    <LocalShippingIcon  style={{ fontSize: 40 }}/>
                     <h1 className='font-bold text-xl '>Free Shipping Method</h1>
