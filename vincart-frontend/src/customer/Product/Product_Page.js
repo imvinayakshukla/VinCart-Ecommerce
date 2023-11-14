@@ -65,7 +65,9 @@ const products = [
 
 ]
 
+
 export default function Product_Page() {
+    
     return (
         <div className="">
             {/* <div className='mt-10'>

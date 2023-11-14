@@ -4,19 +4,25 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Transition, Dialog } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import Add_to_cart from './Add_to_cart';
-import { Link, useLocation } from "react-router-dom";
+import { Link } from 'react-router-dom';
+
+import Signin from '../../User_Login/Signin';
+
 
 
 export default function Navbar() {
 
   const [mobileNavsOpen, setMobileNavsOpen] = useState(false)
   const [CartOpen, setCartOpen] = useState(false)
+  const [SigninOpen, setSigninOpen] = useState(false)
 
-  const toggleCart=()=>{
+
+  const toggleCart = () => {
+    console.log(CartOpen)
     setCartOpen(!CartOpen)
-    
-    
-    
+
+
+
   }
   return (
     <nav className='Navbar font-bold    z-20 w-full  lg:bg-white lg:shadow-xl  flex lg:flex-row flex-col mt-4 p-2 items-center lg:justify-between'>
@@ -25,8 +31,8 @@ export default function Navbar() {
 
       <div className='flex flex-row items-center justify-around  space-x-11'>
         <div className='logo mx-4 '>
-        <Link to="/">
-          <img src='/images/logo/black.png' alt='logo' width={200} /></Link>
+          <Link to="/">
+            <img src='/images/logo/black.png' alt='logo' width={200} /></Link>
         </div>
         {/* ****Menu Category***** */}
 
@@ -39,7 +45,7 @@ export default function Navbar() {
       <div className=' items-center space-x-48 lg:flex hidden'>
         <div className='menu   mx-5  '>
           <ul className='flex space-x-7 '>
-           <li className='cursor-pointer hover:text-red-500'><Link to="/">Home</Link> </li>
+            <li className='cursor-pointer hover:text-red-500'><Link to="/">Home</Link> </li>
             <li className='cursor-pointer hover:text-red-500'><Link to="/productlist"> Category</Link></li>
             <div className="relative cursor-pointer hover:text-red-500 inline-flex items-center">
               Latest
@@ -63,17 +69,20 @@ export default function Navbar() {
             </div>
           </div>
           {/* *******Cart Icon*********** */}
-          {CartOpen?<Add_to_cart/>:<></>}
-              <div className="relative" onClick={toggleCart}>
+          {CartOpen ? <Add_to_cart show={CartOpen} close={() => setCartOpen(false)} /> : <></>}
+          <div className="relative" >
 
-                <div className="relative cursor-pointer hover:text-red-500 inline-flex items-center">
-                  <ShoppingCartIcon  />
-                  <div className="absolute  inline-flex items-center justify-center w-8 h-6 text-xs font-bold text-white bg-blue-400 border-2 border-white rounded-full -top-3.5 -right-6">2</div>
-                </div>
-              </div>
-          {/* ******Sign In Button*********** */}
+            <div onClick={toggleCart} className="relative cursor-pointer hover:text-red-500 inline-flex items-center">
+              <ShoppingCartIcon />
+              <div className="absolute  inline-flex items-center justify-center w-8 h-6 text-xs font-bold text-white bg-blue-400 border-2 border-white rounded-full -top-3.5 -right-6">2</div>
+            </div>
+          </div>
+          {/* *****************Sign In Button***************** */}
+
           <div>
-            <button type="button" className="text-white bg-gradient-to-r my-1 from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Sign in</button>
+
+            <button onClick={() => setSigninOpen(true)} type="button" className="text-white bg-gradient-to-r my-1 from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Sign in</button>
+            {SigninOpen ? <Signin show={SigninOpen} close={() => setSigninOpen(false)} /> : <></>}
           </div>
         </div>
       </div>
@@ -148,8 +157,8 @@ export default function Navbar() {
                     </div>
                     {/* *******Cart Icon*********** */}
                     <div className="relative flex flex-col" onClick={toggleCart}>
-                      <div  className="relative cursor-pointer hover:text-red-500 inline-flex items-center" >
-                        <ShoppingCartIcon     />
+                      <div className="relative cursor-pointer hover:text-red-500 inline-flex items-center" >
+                        <ShoppingCartIcon />
                         <div className="absolute  inline-flex items-center justify-center w-8 h-6 text-xs font-bold text-white bg-blue-400 border-2 border-white rounded-full -top-3.5 -right-6">2</div>
                       </div>
                     </div>

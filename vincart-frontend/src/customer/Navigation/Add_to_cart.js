@@ -26,15 +26,16 @@ const products = [
     imageAlt:
       'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
   },
-  // More products...
+
 ]
 
-export default function Add_to_cart() {
+export default function Add_to_cart(props) {
   const [open, setOpen] = useState(true)
 
+
   return (
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setOpen}>
+    <Transition.Root show={open} as={Fragment} >
+      <Dialog as="div" className="relative z-10 " onClose={setOpen}>
         <Transition.Child
           as={Fragment}
           enter="ease-in-out duration-500"
@@ -68,7 +69,11 @@ export default function Add_to_cart() {
                           <button
                             type="button"
                             className="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
-                            onClick={() => setOpen(false)}
+                            onClick={() => {
+                              setOpen(false)
+                              props.close()
+
+                            }}
                           >
                             <span className="absolute -inset-0.5" />
                             <span className="sr-only">Close panel</span>
@@ -140,7 +145,11 @@ export default function Add_to_cart() {
                           <button
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
-                            onClick={() => setOpen(false)}
+                            onClick={() => {
+                              setOpen(false)
+                              props.close()
+                            }
+                            }
                           >
                             Continue Shopping
                             <span aria-hidden="true"> &rarr;</span>
@@ -158,4 +167,3 @@ export default function Add_to_cart() {
     </Transition.Root>
   )
 }
-  
