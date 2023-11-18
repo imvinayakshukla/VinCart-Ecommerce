@@ -1,11 +1,12 @@
 const mongoose=require('mongoose');
 
-const url="mongodb+srv://vinayakshukla0786:Vinayak%40123@cluster0.fgqrxyu.mongodb.net/?retryWrites=true&w=majority";
+require('dotenv').config()
 
 const connectToMongo=async ()=>{
+   
 
     try{
-        await mongoose.connect(url);
+        await mongoose.connect(process.env.url);
         console.log("Connected to MongoDB successfully")
     }
     catch(error)
